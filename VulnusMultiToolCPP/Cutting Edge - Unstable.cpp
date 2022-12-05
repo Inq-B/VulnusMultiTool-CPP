@@ -26,7 +26,7 @@ string SoundspaceMapData;
 
 //no .split() so i have to do this nastiness.
 boost::regex OsuTitleEx("Title:\\w+( \\w+)*$");
-boost::regex OsuArtistEx("Artist:\\w*");
+boost::regex OsuArtistEx("Artist:\\w+( \\w+)*$");
 boost::smatch OsuTitleMatch;
 boost::smatch OsuArtistMatch;
 

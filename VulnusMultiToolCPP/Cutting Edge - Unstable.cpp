@@ -43,8 +43,6 @@ json VulnusMetaJson;
 json VulnusMapJson;
 
 int OsuRegex(string OsuMapData) {
-	//yup. that's all this function does; i couldn't find a way to have it return the match as a variable and output it otherwise. 
-	//i fucking hate c++, and regex now that i think about it...
 	if (boost::regex_search(OsuMapData, OsuArtistMatch, OsuArtistEx)) {
 		osuArtist = OsuArtistMatch.str();
 	}

@@ -34,6 +34,7 @@ string command;
 string metadatafield;
 string metadatachange;
 string osuArtist;
+string osuTitle;
 string osuBytes; 
 ifstream VulnusMeta;
 ifstream VulnusMap;
@@ -45,10 +46,10 @@ int OsuRegex(string OsuMapData) {
 	//yup. that's all this function does; i couldn't find a way to have it return the match as a variable and output it otherwise. 
 	//i fucking hate c++, and regex now that i think about it...
 	if (boost::regex_search(OsuMapData, OsuArtistMatch, OsuArtistEx)) {
-		cout << OsuArtistMatch << "\n";
+		osuArtist = OsuArtistMatch.str();
 	}
 	if (boost::regex_search(OsuMapData, OsuTitleMatch, OsuTitleEx)) {
-		cout << OsuTitleMatch;
+		osuTitle = OsuTitleMatch.str();
 	}
 	return 0;
 
@@ -178,7 +179,7 @@ string LoadOsuMap(){
 		ostringstream osuData;
 		osuData << OsuMap.rdbuf();
 		OsuMapData = osuData.str();
-		//OsuBytesSubstr(osuData.str());
+		OsuRegex(OsuMapData);
 		return OsuMapLoaded, OsuMapData;
 	}
 	catch (bool error) {
